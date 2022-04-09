@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dos</title>
+    <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'> </script>
+    <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <!-- Plantilla normalize -->
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+
+<body>
+    <style>
+        body {
+            /* max-width: 100%; */
+            background-color: rgb(87, 87, 87);
+
+            /* background-position: center; */
+            /* Center the image */
+            background-repeat: no-repeat;
+            /* Do not repeat the image */
+            background-size: 100%;
+            text-transform: uppercase;
+            margin: auto;
+
+        }
+
+        nav {
+            font-family: 'Montserrat';
+            font-size: small;
+            color: rgb(161, 105, 0);
+            /* background-color: tomato; */
+            text-align: center;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        .barra {
+            background-color: rgb(255, 145, 106);
+        }
+
+        .row {
+            height: 90%;
+        }
+
+        .titulo {
+            height: 10%;
+            background-color: rgb(253, 212, 76);
+            font-family: 'Montserrat';
+            font-size: small;
+            color: red;
+            /* background-color: tomato; */
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        #juego {
+            background-color: rgb(87, 87, 87);
+        }
+
+        .fondo {
+            /*width: 100%;
+            height: 100%; */
+            background: #000 url(./uno/texturas/fondoAtomos.jpg)
+        }
+    </style>
+
+    <div class="container-fluid">
+        <div class="row titulo d-flex align-items-center">
+            <h1>Movimiento</h1>
+            <p>Los electrones orbitan alrededor del núcleo</p>
+        </div>
+        <div class="row">
+            <div class="col-12  pt-1" id="juego">
+                
+
+    <x3d class="fondo">
+        <scene>
+            <!-- ANIMACION DE ROTACION PARA TODO EL SISTEMA -->
+            <transform DEF="SSolar" translation="0 1 0">
+                <shape>
+                    <appearance>
+                    </appearance>
+                    <!-- <cone></cone> -->
+                </shape>
+
+                <!-- INSERTAMOS  PROTON -->
+                <!-- nos sirve para mover, rotar, el Diametro default es de 2 metros-->
+                <transform translation="0.1 0.1 0" scale="0.1 0.1 0.1">
+                    <!-- unidades en metros, XYZ -->
+                    <Inline url="./uno/proton.x3d" />
+                </transform>
+                <transform translation="-0.1 -0.1 0" scale="0.1 0.1 0.1">
+                    <!-- unidades en metros, XYZ -->
+                    <Inline url="./uno/proton.x3d" />
+                </transform>
+                <transform translation="0.1 -0.1 0" scale="0.1 0.1 0.1">
+                    <!-- unidades en metros, XYZ -->
+                    <Inline url="./uno/neutron.x3d" />
+                </transform>
+                <transform translation="-0.1 0.1 0" scale="0.1 0.1 0.1">
+                    <!-- unidades en metros, XYZ -->
+                    <Inline url="./uno/neutron.x3d" />
+                </transform>
+                <transform translation="0 0 0.1" scale="0.1 0.1 0.1">
+                    <!-- unidades en metros, XYZ -->
+                    <Inline url="./uno/neutron.x3d" />
+                </transform>
+                <transform translation="0 0 -0.1" scale="0.1 0.1 0.1">
+                    <!-- unidades en metros, XYZ -->
+                    <Inline url="./uno/proton.x3d" />
+                </transform>
+
+
+                <!-- INSERTAMOS  ELECTRON -->
+                <transform translation="3.8 0.8 -2.0" scale="0.2 0.2 0.2">
+                    <Inline url="./uno/electron1.x3d" />
+                </transform>
+                <transform translation="3.8 0.8 2.0" scale="0.2 0.2 0.2">
+                    <Inline url="./uno/electron2.x3d" />
+                </transform>
+                <transform translation="-3.8 0 -2.0" scale="0.2 0.2 0.2">
+                    <Inline url="./uno/electron3.x3d" />
+                </transform>
+                <transform translation="-3.8 0 2.0" scale="0.2 0.2 0.2">
+                    <Inline url="./uno/electron4.x3d" />
+                </transform>
+                <transform translation="0 -0.5 -3.0" scale="0.2 0.2 0.2">
+                    <Inline url="./uno/electron5.x3d" />
+                </transform>
+                <transform translation="0 -0.5 3.0" scale="0.2 0.2 0.2">
+                    <Inline url="./uno/electron6.x3d" />
+                </transform>
+
+                <!--Parametros de animacion: sensor de tiempo y cual eje se animara
+                key son los keyframes en porcentaje0, 50 y 10
+                keyvalue son los valores XYZ de los fotogramas, el eje que se mueve es uno y los otros 0, 
+                el cuarto numero es la rotacion, pero no en grados sino en radianes 360° = 6.28 RAD-->
+
+                <timeSensor DEF='timerTL' cycleInterval='15' loop='true'></timeSensor>
+                <orientationInterpolator DEF='rotatorTL' key='0 0.5 1' keyValue='
+                0 1 0 0 
+                0 1 0 3.14 
+                0 1 0 6.28'>
+                </orientationInterpolator>
+
+            </transform> <!-- CIERRA EL SISTEMA SOLAR -->
+
+            <transform DEF="mod_x3d">
+                <transform  translation="0 -1.5 0" scale="0.4 0.4 0.4">
+                <inline url="./dos/atomic-structure.x3d"/>
+                </transform>
+                
+                <timeSensor DEF='timerTL2' cycleInterval='15' loop='true'></timeSensor>
+                <orientationInterpolator DEF='rotatorTL2' key='0 0.5 1' keyValue='
+                0 1 0 0 
+                0 1 0 -3.14 
+                0 1 0 -6.28'>
+                </orientationInterpolator>
+            </transform>
+            </transform>
+
+            <!-- ROUTE canaliza el sensor de tiempo y la rotación al transform -->
+            <!-- SE DEBE PONER EL NOMBRE DEL DEF QUE QUEREMOS ANIMAR -->
+            <ROUTE fromNode='timerTL' fromField='fraction_changed' toNode='rotatorTL' toField='set_fraction'></ROUTE>
+            <ROUTE fromNode='rotatorTL' fromField='value_changed' toNode='SSolar' toField='set_rotation'></ROUTE>
+
+            <ROUTE fromNode='timerTL2' fromField='fraction_changed' toNode='rotatorTL2' toField='set_fraction'></ROUTE>
+            <ROUTE fromNode='rotatorTL2' fromField='value_changed' toNode='mod_x3d' toField='set_rotation'></ROUTE>
+
+        </scene>
+    </x3d>
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Carga de scripts JS -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

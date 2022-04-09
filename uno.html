@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uno</title>
+    <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'> </script>
+    <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <!-- Plantilla normalize -->
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+
+<body>
+    <style>
+        body {
+            /* max-width: 100%; */
+            background-color: rgb(87, 87, 87);
+
+            margin: auto;
+
+        }
+
+        nav {
+            font-family: 'Montserrat';
+            font-size: small;
+            color: rgb(161, 105, 0);
+            /* background-color: tomato; */
+            text-align: center;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        .barra {
+            background-color: rgb(255, 145, 106);
+        }
+
+        .row {
+            height: 90%;
+        }
+
+        .titulo {
+            height: 10%;
+            background-color: rgb(253, 212, 76);
+            font-family: 'Montserrat';
+            font-size: small;
+            color: red;
+            /* background-color: tomato; */
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        #juego {
+            background-color: rgb(87, 87, 87);
+        }
+
+        .fondo {
+            /*width: 100%;
+            height: 100%; */
+            background: #000 url(./uno/texturas/fondoAtomos.jpg)
+        }
+    </style>
+
+    <div class="container-fluid">
+        <div class="row titulo d-flex align-items-center">
+            <h1>Atomo de Carbono </h1>
+            <p>COMPONENTES: Electrones, núcleo, protones y neutrones</p>
+        </div>
+        <div class="row">
+            <div class="col-12  pt-1" id="juego">
+                
+                <x3d class="fondo">
+                    <scene>
+                        <shape>
+                            <appearance>
+                            </appearance>
+                            <!-- <cone></cone> -->
+                        </shape>
+
+                        <!-- INSERTAMOS  PROTON/NEUTRON -->
+                        <!-- nos sirve para mover, rotar, el Diametro default es de 2 metros-->
+                        <transform translation="0.1 0.1 0" scale="0.1 0.1 0.1">
+                            <!-- unidades en metros, XYZ -->
+                            <Inline url="./uno/proton.x3d" />
+                        </transform>
+                        <transform translation="-0.1 -0.1 0" scale="0.1 0.1 0.1">
+                            <!-- unidades en metros, XYZ -->
+                            <Inline url="./uno/proton.x3d" />
+                        </transform>
+                        <transform translation="0.1 -0.1 0" scale="0.1 0.1 0.1">
+                            <!-- unidades en metros, XYZ -->
+                            <Inline url="./uno/neutron.x3d" />
+                        </transform>
+                        <transform translation="-0.1 0.1 0" scale="0.1 0.1 0.1">
+                            <!-- unidades en metros, XYZ -->
+                            <Inline url="./uno/neutron.x3d" />
+                        </transform>
+                        <transform translation="0 0 0.1" scale="0.1 0.1 0.1">
+                            <!-- unidades en metros, XYZ -->
+                            <Inline url="./uno/neutron.x3d" />
+                        </transform>
+                        <transform translation="0 0 -0.1" scale="0.1 0.1 0.1">
+                            <!-- unidades en metros, XYZ -->
+                            <Inline url="./uno/proton.x3d" />
+                        </transform>
+
+                        <!-- INSERTAMOS  ELECTRON -->
+                        <transform translation="3.8 0 -2.0" scale="0.2 0.2 0.2">
+                            <Inline url="./uno/electron1.x3d" />
+                        </transform>
+                        <transform translation="3.8 0 2.0" scale="0.2 0.2 0.2">
+                            <Inline url="./uno/electron2.x3d" />
+                        </transform>
+                        <transform translation="-3.8 0 -2.0" scale="0.2 0.2 0.2">
+                            <Inline url="./uno/electron3.x3d" />
+                        </transform>
+                        <transform translation="-3.8 0 2.0" scale="0.2 0.2 0.2">
+                            <Inline url="./uno/electron4.x3d" />
+                        </transform>
+                        <transform translation="0 0.8 -3.0" scale="0.2 0.2 0.2">
+                            <Inline url="./uno/electron5.x3d" />
+                        </transform>
+                        <transform translation="0 -0.5 3.0" scale="0.2 0.2 0.2">
+                            <Inline url="./uno/electron6.x3d" />
+                        </transform>
+                    </scene>
+                </x3d>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Carga de scripts JS -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

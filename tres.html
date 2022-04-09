@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DEF y USE</title>
+    <script src='https://www.x3dom.org/x3dom/release/x3dom-full.js'></script>
+    <link rel='stylesheet' href='https://www.x3dom.org/x3dom/release/x3dom.css'>
+    <style>
+        body {
+            background-color: rgb(252, 237, 29);
+            color: white;
+            font-family: sans-serif;
+            margin: 0;
+        }
+
+        .fondo {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <X3D class="fondo">
+        <Scene>
+            <Transform translation="-3.5 0 0" rotation="1 0 0 1.7">
+                <Transform DEF='Arco'>
+                    <inline DEF="ARCOm" url="./tres/hexagono.x3d"></inline>
+                </Transform>
+
+                <Transform translation="1.75 0 0" >
+                    <shape USE="ARCOm" />
+                </Transform>
+
+                <Transform translation="3.5 0 0">
+                    <shape USE="ARCOm" />
+                </Transform>
+
+                <Transform translation="5.25 0 0">
+                    <shape USE="ARCOm" />
+                </Transform>
+
+                <Transform translation="7 0 0">
+                    <shape USE="ARCOm" />
+                </Transform>
+            </Transform>
+        </Scene>
+    </X3D>
+</body>
+
+</html>

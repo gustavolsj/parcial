@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.w3d.org/specifications/x3d-3.0.dtd">
+
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+
+<Scene>
+    <Group>
+        <Transform DEF="PuertaAnimada">
+        <Transform translation="0 1.5 0">
+            <Shape>
+                <Appearance>
+                    <Material />
+                </Appearance>
+                <Cylinder bottom="false" top="false" height="3" radius="0.05" />
+            </Shape>
+        </Transform>
+        <Transform translation="1 1.5 0">
+            <Shape>
+                <Appearance>
+                    <Material />
+                    <ImageTexture url="imagen/madera.jpg" />
+                </Appearance>
+                <Box size="2 3 0.1" />
+            </Shape>
+        </Transform>
+        </Transform>
+            <TimeSensor DEF='timer' cycleInterval='8' startTime='-1'/>
+            <TouchSensor DEF='Tocar'/>
+    </Group>
+    <OrientationInterpolator DEF='Girar' key='0 0.25 1' keyValue='0 1 0 0 0 1 0 -1.571 0 1 0 0'/>
+
+<!-- La segunda puerta es un clon de la primera 
+    <Transform rotation='0 0 1 3.1416' translation='4 3 0'>
+      <Transform USE='PuertaAnimada'/>
+    </Transform>
+-->
+
+ <!-- El piso 	
+    <Transform translation='2 0 0'>
+      <Shape>
+        <Appearance>
+          <Material ambientIntensity='0' diffuseColor='0 0 0' emissiveColor='1 0.49 0.11' shininess='0.05' specularColor='0.62 0.55 0.26'/>
+        </Appearance>
+        <Box size='20 0.01 20'/>
+      </Shape>
+    </Transform>  
+-->
+<!-- Comandos de animación -->	
+    <ROUTE fromNode='Girar' fromField='value_changed' toNode='PuertaAnimada' toField='set_rotation'/>
+    <ROUTE fromNode='timer' fromField='fraction_changed' toNode='Girar' toField='set_fraction'/>
+    <ROUTE fromNode='Tocar' fromField='touchTime' toNode='timer' toField='set_startTime'/>    
+
+</Scene>
+</X3D>

@@ -1,0 +1,82 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de química 3D</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <!-- Plantilla normalize -->
+    <link rel="stylesheet" href="./css/normalize.css">
+</head>
+<style>
+    body {
+        /* max-width: 100%; */
+        background-color: #ffffff;
+        background-image: url("repetir.png");
+        /* background-position: center; */
+        /* Center the image */
+        background-repeat: repeat;
+        /* Do not repeat the image */
+        background-size: 7%;
+        text-transform: uppercase;
+
+        margin: auto;
+    }
+
+    nav {
+        font-family: 'Montserrat';
+        font-size: small;
+    }
+
+    .i_frame {
+        margin-left: 10%;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #ffffff;">
+        <div class=" container">
+            <a class="navbar-brand" href="#">
+                <img src="atomo.gif" alt="" height="44">
+                QUÍMICA 3D
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <!-- <a class="navbar-brand" href="#"></a> -->
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="uno.html" target="ifrm">Componentes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dos.html" target="ifrm">Movimiento</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tres.html" target="ifrm">Hexagono</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./cuatro/cuatro.html" target="ifrm">Cuatro</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row  d-flex align-items-center">
+        </div>
+        <div class="row">
+            <div class="col pt-2 i_frame">
+                <iframe src="uno.html" name="ifrm" width="90%" height="700px" frameborder="0"> </iframe>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
