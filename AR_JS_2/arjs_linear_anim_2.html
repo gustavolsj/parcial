@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realidad Aumentada con AR.js</title>
+    <!-- BIBLIOTECAS AFRAME Y AR  PARA REALIDAD VIRTUAL Y AUMENTADA -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    </title>
+</head>
+
+<body>
+    <a-scene embedded arjs>
+        <a-marker preset="hiro">
+            <!-- Objeto central SOL -->
+            <a-entity geometry="primitive: sphere; radius: 0.7" material="src:url(texturas/csol.jpg)" position="0 1 0">
+            </a-entity>
+            <!-- SIGUIENTES OBJETOS ANIDADOS. y Objeto visible-->
+            <!-- Objeto Nulo que controla la animación  -->
+            <a-entity roation="0 0 0" position="0 1 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear">
+                <!-- FONDO -->
+                <a-entity geometry="primitive: plane; height: 10; width: 10" position=" 0 -1 0" rotation="90 0 0"
+                    material="src:url(texturas/espacio.jpg); side: double">
+                </a-entity>
+
+                <!-- planeta 1 -->
+                <a-entity geometry="primitive: sphere; radius: 0.2;" position="1 0 0"
+                    material="src:url(texturas/cmercurio.jpg)">
+                </a-entity>
+                <!-- planeta 2 -->
+                <a-entity geometry="primitive: sphere; radius: 0.2;" position="-1.4 0 -1"
+                    material="src:url(texturas/cvenus.jpg)">
+                </a-entity>
+                <!-- planeta 3 -->
+                <a-entity geometry="primitive: sphere; radius: 0.3;" position="-2 0 2"
+                    material="src:url(texturas/tierra.jpg)">
+                </a-entity>
+                <!-- planeta 4 -->
+                <a-entity geometry="primitive: sphere; radius: 0.3;" position="2.5 0 -1.8"
+                    material="src:url(texturas/cmarte.jpg)">
+                </a-entity>
+                <!-- planeta 5 -->
+                <a-entity geometry="primitive: sphere; radius: 0.5;" position="2.8 0 2"
+                    material="src:url(texturas/cjupiter.jpg)">
+                </a-entity>
+                <!-- planeta 6 -->
+                <a-entity geometry="primitive: sphere; radius: 0.4;" position="2.1 0 -0.9"
+                    material="src:url(texturas/curano.jpg)">
+                </a-entity>
+                <!-- planeta 7 -->
+                <a-entity geometry="primitive: sphere; radius: 0.2;" position="-3.5 0 2.5"
+                    material="src:url(texturas/csaturno.jpg)">
+                </a-entity>
+                <a-entity geometry="primitive: circle; radius: 0.5;" position="-3.5 0 2.5" rotation="-90 0 0"
+                    material="src:url(texturas/anillos.png)">
+                </a-entity>
+            </a-entity>
+
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>
