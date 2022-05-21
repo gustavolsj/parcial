@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANJI. Realidad Aumentada con AR.js</title>
+    <!-- BIBLIOTECAS AFRAME Y AR  PARA REALIDAD VIRTUAL Y AUMENTADA -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    </title>
+</head>
+
+<body>
+    <a-scene embedded arjs>
+        <a-marker preset="kanji">
+            <!-- Objeto central SOL -->
+            <a-entity geometry="primitive: sphere; radius: 0.5" material="color: purple; opacity: 0.8" position="0 1 0">
+            </a-entity>
+
+            <!-- SIGUIENTES OBJETOS ANIDADOS. y Objeto visible-->
+            <!-- Objeto Nulo que controla la animación  -->
+            <a-entity roation="0 0 0" position="0 1 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear">
+                <!-- FONDO -->
+                <!-- planeta 1 -->
+                <a-entity geometry="primitive: tetrahedron; radius: 0.4;" position="1 0 0"
+                    material="color: green; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 2 -->
+                <a-entity geometry="primitive: ring; radius: 0.2;" position="-1.4 0 -1"
+                    material="color: red; opacity: 0.5">
+                </a-entity>
+                <!-- planeta 3 -->
+                <a-entity geometry="primitive: octahedron; radius: 0.3;" position="-2 0 2"
+                    material="color: blue; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 4 -->
+                <a-entity geometry="primitive: dodecahedron; radius: 0.3;" position="2.5 0 -1.8"
+                    material="color: violet; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 5 -->
+                <a-entity geometry="primitive: torus; radius: 0.5;" position="2.8 0 2"
+                    material="color: pink; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 6 -->
+                <a-entity geometry="primitive: torusKnot; radius: 0.4;" position="2.1 0 -0.9"
+                    material="color: yellow; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 7 -->
+                <a-entity geometry="primitive: triangle; radius: 0.2;" position="-3.5 0 2.5"
+                    material="color: grey; opacity: 0.8">
+                </a-entity>
+                <a-entity geometry="primitive: cone; radius: 0.5;" position="-3.7 0 2.5" rotation="-90 0 0"
+                    material="color: brown; opacity: 0.8">
+                </a-entity>
+            </a-entity>
+
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>
