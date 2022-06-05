@@ -18,7 +18,6 @@
         <!-- ASSETS -->
         <a-assets>
             <a-asset-item id="animated-joven" src="assets/joven_baile.glb"></a-asset-item>
-            <a-asset-item id="animated-nefer" src="assets/nefertiti.glb"></a-asset-item>
             <a-asset-item id="animated-mario" src="assets/mario_baseball.glb"></a-asset-item>
             <a-asset-item id="personaje-animado" src="assets/astronauta_running.glb"></a-asset-item>
         </a-assets>
@@ -102,7 +101,8 @@
         <!--  4..960  ok ok -->
         <a-marker type="pattern" preset="custom" url="assets/pattern-space_2.patt" raycaster="objects: .clickable"
             emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
-            <a-entity rotation="-90 0 0" scale="1 1 1" gltf-model="modelo3d/mario_baseball.glb"></a-entity>
+            <a-entity rotation="-90 0 0" position="-1 -4 0" scale="2 2 2" gltf-model="modelo3d/mario_baseball.glb">
+            </a-entity>
         </a-marker>
 
         <!--  5.. Space  ok ok-->
