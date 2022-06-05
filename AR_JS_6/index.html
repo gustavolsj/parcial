@@ -15,47 +15,110 @@
     <a-scene embedded arjs='sourceType: webcam; 
 	detectionMode: mono_and_matrix; matrixCodeType: 3x3;' renderer='precision: medium;' embedded gesture-detector>
 
-
         <!-- ASSETS -->
         <a-assets>
-            <a-asset-item id="animated-asset" src="assets/asset.glb"></a-asset-item>
+            <a-asset-item id="animated-joven" src="assets/joven_baile.glb"></a-asset-item>
             <a-asset-item id="animated-nefer" src="assets/nefertiti.glb"></a-asset-item>
+            <a-asset-item id="animated-mario" src="assets/mario_baseball.glb"></a-asset-item>
+            <a-asset-item id="personaje-animado" src="assets/astronauta_running.glb"></a-asset-item>
         </a-assets>
 
 
-        <!-- MODELOS Y MARCADORES -->
-        <!-- hiro -->
+        <!-- MARCADORES INCLUIDOS-->
+        <!-- 1..hiro ok ok-->
         <a-marker preset='hiro'>
-            <a-entity position="0 1 0" scale="0.3 0.3 0.3" gltf-model="modelo3d/mariposa.glb"></a-entity>
+            <a-entity scale="0.2 0.2 0.2" rotaion="0 0 0" position="0 1 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+                <!-- FONDO -->
+                <!-- planeta 1 -->
+                <a-entity geometry="primitive: tetrahedron; radius: 0.4;" position="1 0 0"
+                    material="color: green; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 2 -->
+                <a-entity geometry="primitive: ring; radius: 0.2;" position="-1.4 0 -1"
+                    material="color: red; opacity: 0.5">
+                </a-entity>
+                <!-- planeta 3 -->
+                <a-entity geometry="primitive: octahedron; radius: 0.3;" position="-2 0 2"
+                    material="color: blue; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 4 -->
+                <a-entity geometry="primitive: dodecahedron; radius: 0.3;" position="2.5 0 -1.8"
+                    material="color: violet; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 5 -->
+                <a-entity geometry="primitive: torus; radius: 0.5;" position="2.8 0 2"
+                    material="color: pink; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 6 -->
+                <a-entity geometry="primitive: torusKnot; radius: 0.4;" position="2.1 0 -0.9"
+                    material="color: yellow; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 7 -->
+                <a-entity geometry="primitive: triangle; radius: 0.2;" position="-3.5 0 2.5"
+                    material="color: grey; opacity: 0.8">
+                </a-entity>
+                <a-entity geometry="primitive: cone; radius: 0.5;" position="-3.7 0 2.5" rotation="-90 0 0"
+                    material="color: brown; opacity: 0.8">
+                </a-entity>
+            </a-entity>
         </a-marker>
 
-        <!-- matrix: barcode 05 -->
-        <a-marker type='barcode' value='5'>
-            <a-entity position="0 0 0" rotation="-90 0 0" scale="0.3 0.3 0.3" animation-mixer="loop: repeat"
-                gltf-model="modelo3d/silly-dancing.glb"></a-entity>
-        </a-marker>
-
-        <!-- kanji -->
+        <!-- 2..kanji ok ok-->
         <a-marker preset='kanji'>
-            <a-entity rotation="-90 0 0" scale="3 3 3" gltf-model="modelo3d/isla.glb"></a-entity>
+            <a-entity scale="0.5 0.5 0.5" rotaion="0 0 0" position="0 1 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 2000; easing: linear">
+
+                <!-- planeta 1 -->
+                <a-entity geometry="primitive: tetrahedron; radius: 0.4;" position="1 0 1"
+                    material="color: purple; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 1 -->
+                <a-entity geometry="primitive: tetrahedron; radius: 0.4;" position="-1 0 -1"
+                    material="color: yellow; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 1 -->
+                <a-entity geometry="primitive: tetrahedron; radius: 0.4;" position="0.8 0 -0.8"
+                    material="color: green; opacity: 0.8">
+                </a-entity>
+                <!-- planeta 1 -->
+                <a-entity geometry="primitive: tetrahedron; radius: 0.4;" position="-0.8 0 0.8"
+                    material="color: blue; opacity: 0.8">
+                </a-entity>
+
+            </a-entity>
         </a-marker>
 
-        <!--  Marcador F  -->
 
-        <!--  ASSETS Y MARCADORES -->
+        <!-- 3..Barcode 14 ok ok -->
+        <a-marker type='barcode' value='14'>
+            <a-entity id="modelo-3D" rotation="-90 0 0" scale="0.3 0.3 0.3" position="0 0 0"
+                animation-mixer="loop: repeat" gltf-model="#personaje-animado" class="clickable" gesture-handler>
+            </a-entity>
+        </a-marker>
 
-        <a-marker type="pattern" preset="custom" url="assets/marker.patt" raycaster="objects: .clickable"
+
+        <!--  MARCADORES PERSONALIZADOS -->
+        <!--  4..960  ok ok -->
+        <a-marker type="pattern" preset="custom" url="assets/pattern-space_2.patt" raycaster="objects: .clickable"
             emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
-            <a-entity scale="0.9417189483550997 0.9417189483550997 0.9417189483550997" animation-mixer="loop: repeat"
-                gltf-model="#animated-asset" class="clickable" gesture-handler></a-entity>
+            <a-entity rotation="-90 0 0" scale="1 1 1" gltf-model="modelo3d/mario_baseball.glb"></a-entity>
         </a-marker>
 
-        <!--  Marcador Nefertiti  -->
+        <!--  5.. Space  ok ok-->
 
-        <a-marker type="pattern" preset="custom" url="assets/nefertiti.patt" raycaster="objects: .clickable"
+        <a-marker type="pattern" preset="custom" url="../AR_JS_4/assets/pattern-space_invader.patt"
+            raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+            <a-entity scale="0.5 0.5 0.5" rotation="-90 0 0" animation-mixer="loop: repeat" gltf-model="#animated-mario"
+                class="clickable" gesture-handler></a-entity>
+        </a-marker>
+
+        <!--  6..Personalizado  ok ok-->
+
+        <a-marker type="pattern" preset="custom" url="assets/pattern-personalizado.patt" raycaster="objects: .clickable"
             emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
             <a-entity scale="0.005 0.005 0.005" rotation="-90 0 0" animation-mixer="loop: repeat"
-                gltf-model="#animated-nefer" class="clickable" gesture-handler></a-entity>
+                gltf-model="#animated-joven" class="clickable" gesture-handler></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
